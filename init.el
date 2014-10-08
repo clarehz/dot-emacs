@@ -31,6 +31,7 @@
     cmake-mode
     slime
     fill-column-indicator
+    magit
     ))
 (defun install-packages ()
   "Install all required packages."
@@ -461,7 +462,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; fill-column-indicator
 (require 'fill-column-indicator)
-(fci-mode)
+(setq fci-always-use-textual-rule t)
+(setq fci-rule-color "red")
+(add-hook 'c-mode-hook 'fci-mode)
+(add-hook 'c++-mode-hook 'fci-mode)
 
-(setq whitespace-style '(face trailing))
+
+
 (message "Ready to play!")
